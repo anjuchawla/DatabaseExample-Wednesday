@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DatabaseExample
 {
-    public partial class Form1 : Form
+    public partial class DataGridViewForm : Form
     {
-        public Form1()
+        public DataGridViewForm()
         {
             InitializeComponent();
         }
