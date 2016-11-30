@@ -16,7 +16,7 @@ namespace DatabaseExample
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DataGridViewForm());
+            Application.Run(new DetailsForm());
         }
     }
 }

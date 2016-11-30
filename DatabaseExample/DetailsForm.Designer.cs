@@ -1,6 +1,6 @@
 ﻿namespace DatabaseExample
 {
-    partial class DataGridViewForm
+    partial class DetailsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataGridViewForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DetailsForm));
+            System.Windows.Forms.Label customerIDLabel;
+            System.Windows.Forms.Label nameLabel;
+            System.Windows.Forms.Label addressLabel;
+            System.Windows.Forms.Label cityLabel;
             this.mMABooksDataSet = new DatabaseExample.MMABooksDataSet();
             this.customersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customersTableAdapter = new DatabaseExample.MMABooksDataSetTableAdapters.CustomersTableAdapter();
@@ -47,18 +51,34 @@
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.customersBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
-            this.customersDataGridView = new System.Windows.Forms.DataGridView();
+            this.customerIDTextBox = new System.Windows.Forms.TextBox();
+            this.nameTextBox = new System.Windows.Forms.TextBox();
+            this.addressTextBox = new System.Windows.Forms.TextBox();
+            this.cityTextBox = new System.Windows.Forms.TextBox();
+            this.stateTextBox = new System.Windows.Forms.TextBox();
+            this.zipCodeTextBox = new System.Windows.Forms.TextBox();
+            this.invoicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.invoicesTableAdapter = new DatabaseExample.MMABooksDataSetTableAdapters.InvoicesTableAdapter();
+            this.invoicesBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.invoicesDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            customerIDLabel = new System.Windows.Forms.Label();
+            nameLabel = new System.Windows.Forms.Label();
+            addressLabel = new System.Windows.Forms.Label();
+            cityLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mMABooksDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingNavigator)).BeginInit();
             this.customersBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoicesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoicesBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoicesDataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // mMABooksDataSet
@@ -80,7 +100,7 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CustomersTableAdapter = this.customersTableAdapter;
             this.tableAdapterManager.InvoiceLineItemsTableAdapter = null;
-            this.tableAdapterManager.InvoicesTableAdapter = null;
+            this.tableAdapterManager.InvoicesTableAdapter = this.invoicesTableAdapter;
             this.tableAdapterManager.OrderOptionsTableAdapter = null;
             this.tableAdapterManager.ProductsTableAdapter = null;
             this.tableAdapterManager.StatesTableAdapter = null;
@@ -105,8 +125,7 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.customersBindingNavigatorSaveItem,
-            this.toolStripButton1});
+            this.customersBindingNavigatorSaveItem});
             this.customersBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.customersBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.customersBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -114,7 +133,7 @@
             this.customersBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.customersBindingNavigator.Name = "customersBindingNavigator";
             this.customersBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.customersBindingNavigator.Size = new System.Drawing.Size(855, 27);
+            this.customersBindingNavigator.Size = new System.Drawing.Size(795, 27);
             this.customersBindingNavigator.TabIndex = 0;
             this.customersBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -212,85 +231,195 @@
             this.customersBindingNavigatorSaveItem.Text = "Save Data";
             this.customersBindingNavigatorSaveItem.Click += new System.EventHandler(this.customersBindingNavigatorSaveItem_Click);
             // 
-            // customersDataGridView
+            // customerIDLabel
             // 
-            this.customersDataGridView.AllowUserToOrderColumns = true;
-            this.customersDataGridView.AutoGenerateColumns = false;
-            this.customersDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.customersDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            customerIDLabel.AutoSize = true;
+            customerIDLabel.Location = new System.Drawing.Point(168, 68);
+            customerIDLabel.Name = "customerIDLabel";
+            customerIDLabel.Size = new System.Drawing.Size(89, 17);
+            customerIDLabel.TabIndex = 1;
+            customerIDLabel.Text = "Customer ID:";
+            // 
+            // customerIDTextBox
+            // 
+            this.customerIDTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "CustomerID", true));
+            this.customerIDTextBox.Location = new System.Drawing.Point(291, 65);
+            this.customerIDTextBox.Name = "customerIDTextBox";
+            this.customerIDTextBox.ReadOnly = true;
+            this.customerIDTextBox.Size = new System.Drawing.Size(256, 22);
+            this.customerIDTextBox.TabIndex = 2;
+            // 
+            // nameLabel
+            // 
+            nameLabel.AutoSize = true;
+            nameLabel.Location = new System.Drawing.Point(168, 96);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(49, 17);
+            nameLabel.TabIndex = 3;
+            nameLabel.Text = "Name:";
+            // 
+            // nameTextBox
+            // 
+            this.nameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Name", true));
+            this.nameTextBox.Location = new System.Drawing.Point(291, 93);
+            this.nameTextBox.Name = "nameTextBox";
+            this.nameTextBox.Size = new System.Drawing.Size(256, 22);
+            this.nameTextBox.TabIndex = 4;
+            // 
+            // addressLabel
+            // 
+            addressLabel.AutoSize = true;
+            addressLabel.Location = new System.Drawing.Point(168, 124);
+            addressLabel.Name = "addressLabel";
+            addressLabel.Size = new System.Drawing.Size(64, 17);
+            addressLabel.TabIndex = 5;
+            addressLabel.Text = "Address:";
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "Address", true));
+            this.addressTextBox.Location = new System.Drawing.Point(291, 121);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(256, 22);
+            this.addressTextBox.TabIndex = 6;
+            // 
+            // cityLabel
+            // 
+            cityLabel.AutoSize = true;
+            cityLabel.Location = new System.Drawing.Point(168, 152);
+            cityLabel.Name = "cityLabel";
+            cityLabel.Size = new System.Drawing.Size(104, 17);
+            cityLabel.TabIndex = 7;
+            cityLabel.Text = "City, State, Zip:";
+            // 
+            // cityTextBox
+            // 
+            this.cityTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "City", true));
+            this.cityTextBox.Location = new System.Drawing.Point(291, 149);
+            this.cityTextBox.Name = "cityTextBox";
+            this.cityTextBox.Size = new System.Drawing.Size(100, 22);
+            this.cityTextBox.TabIndex = 8;
+            // 
+            // stateTextBox
+            // 
+            this.stateTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "State", true));
+            this.stateTextBox.Location = new System.Drawing.Point(397, 147);
+            this.stateTextBox.Name = "stateTextBox";
+            this.stateTextBox.Size = new System.Drawing.Size(44, 22);
+            this.stateTextBox.TabIndex = 10;
+            // 
+            // zipCodeTextBox
+            // 
+            this.zipCodeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.customersBindingSource, "ZipCode", true));
+            this.zipCodeTextBox.Location = new System.Drawing.Point(447, 147);
+            this.zipCodeTextBox.Name = "zipCodeTextBox";
+            this.zipCodeTextBox.Size = new System.Drawing.Size(100, 22);
+            this.zipCodeTextBox.TabIndex = 12;
+            // 
+            // invoicesBindingSource
+            // 
+            this.invoicesBindingSource.DataMember = "Invoices";
+            this.invoicesBindingSource.DataSource = this.mMABooksDataSet;
+            // 
+            // invoicesTableAdapter
+            // 
+            this.invoicesTableAdapter.ClearBeforeFill = true;
+            // 
+            // invoicesBindingSource1
+            // 
+            this.invoicesBindingSource1.DataMember = "FK_Invoices_Customers";
+            this.invoicesBindingSource1.DataSource = this.customersBindingSource;
+            // 
+            // invoicesDataGridView
+            // 
+            this.invoicesDataGridView.AutoGenerateColumns = false;
+            this.invoicesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.invoicesDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.customersDataGridView.DataSource = this.customersBindingSource;
-            this.customersDataGridView.Location = new System.Drawing.Point(33, 51);
-            this.customersDataGridView.Name = "customersDataGridView";
-            this.customersDataGridView.RowTemplate.Height = 24;
-            this.customersDataGridView.Size = new System.Drawing.Size(786, 297);
-            this.customersDataGridView.TabIndex = 1;
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.invoicesDataGridView.DataSource = this.invoicesBindingSource1;
+            this.invoicesDataGridView.Location = new System.Drawing.Point(12, 218);
+            this.invoicesDataGridView.Name = "invoicesDataGridView";
+            this.invoicesDataGridView.RowTemplate.Height = 24;
+            this.invoicesDataGridView.Size = new System.Drawing.Size(743, 272);
+            this.invoicesDataGridView.TabIndex = 12;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "InvoiceID";
+            this.dataGridViewTextBoxColumn1.HeaderText = "InvoiceID";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "CustomerID";
+            this.dataGridViewTextBoxColumn2.HeaderText = "CustomerID";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn2.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Address";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "InvoiceDate";
+            this.dataGridViewTextBoxColumn3.HeaderText = "InvoiceDate";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "City";
-            this.dataGridViewTextBoxColumn4.HeaderText = "City";
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "ProductTotal";
+            this.dataGridViewTextBoxColumn4.HeaderText = "ProductTotal";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "State";
-            this.dataGridViewTextBoxColumn5.HeaderText = "State";
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "SalesTax";
+            this.dataGridViewTextBoxColumn5.HeaderText = "SalesTax";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "ZipCode";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Zip Code";
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Shipping";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Shipping";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
-            // toolStripButton1
+            // dataGridViewTextBoxColumn7
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(57, 24);
-            this.toolStripButton1.Text = "Cancel";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "InvoiceTotal";
+            this.dataGridViewTextBoxColumn7.HeaderText = "InvoiceTotal";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
-            // DataGridViewForm
+            // DetailsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 385);
-            this.Controls.Add(this.customersDataGridView);
+            this.ClientSize = new System.Drawing.Size(795, 510);
+            this.Controls.Add(this.invoicesDataGridView);
+            this.Controls.Add(customerIDLabel);
+            this.Controls.Add(this.customerIDTextBox);
+            this.Controls.Add(nameLabel);
+            this.Controls.Add(this.nameTextBox);
+            this.Controls.Add(addressLabel);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(cityLabel);
+            this.Controls.Add(this.cityTextBox);
+            this.Controls.Add(this.stateTextBox);
+            this.Controls.Add(this.zipCodeTextBox);
             this.Controls.Add(this.customersBindingNavigator);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "DataGridViewForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Customer Table";
-            this.Load += new System.EventHandler(this.DataGridViewForm_Load);
+            this.Name = "DetailsForm";
+            this.Text = "DetailsForm";
+            this.Load += new System.EventHandler(this.DetailsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.mMABooksDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.customersBindingNavigator)).EndInit();
             this.customersBindingNavigator.ResumeLayout(false);
             this.customersBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customersDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoicesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoicesBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.invoicesDataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -315,13 +444,22 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.ToolStripButton customersBindingNavigatorSaveItem;
-        private System.Windows.Forms.DataGridView customersDataGridView;
+        private System.Windows.Forms.TextBox customerIDTextBox;
+        private System.Windows.Forms.TextBox nameTextBox;
+        private System.Windows.Forms.TextBox addressTextBox;
+        private System.Windows.Forms.TextBox cityTextBox;
+        private System.Windows.Forms.TextBox stateTextBox;
+        private System.Windows.Forms.TextBox zipCodeTextBox;
+        private MMABooksDataSetTableAdapters.InvoicesTableAdapter invoicesTableAdapter;
+        private System.Windows.Forms.BindingSource invoicesBindingSource;
+        private System.Windows.Forms.BindingSource invoicesBindingSource1;
+        private System.Windows.Forms.DataGridView invoicesDataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }
-
